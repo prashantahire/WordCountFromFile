@@ -11,14 +11,13 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.stream.Collectors;
 
-
 public class FilesReader {
     private ExecutorService executorService;
 
     public FilesReader(final ExecutorService executorService) {
         this.executorService = executorService;
     }
-
+    
     public List<CompletableFuture<Void>> readAndAddtoBQ(List<String> fileNames, BlockingQueue<String> blockingQueue) {
         System.out.println("File reading started...");
         return fileNames.stream().map(fileName -> readCompleteableFuture(fileName, blockingQueue)).collect(Collectors.toList());
@@ -44,7 +43,9 @@ public class FilesReader {
             }
         }
         catch (IOException | InterruptedException e) {
+            
             System.out.println("Error during file read..!" + e.getMessage());
+            
         }
     }
 }
