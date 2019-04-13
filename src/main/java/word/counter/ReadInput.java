@@ -1,14 +1,10 @@
-
-
 package word.counter;
-
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicLong;
-
 
 public class ReadInput {
     private static final Scanner scanner = new Scanner(System.in);
